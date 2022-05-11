@@ -1,6 +1,6 @@
 [env]
 # Path to CE Toolchain files
-CEDEV = "/home/oguzkurt/development/ti84/git/CEdev"
+CEDEV = "/home/oguzkurt/development/ti84/CEdev"
 # Name to display in calculator
 EXECUTABLE_NAME = "DEMO"
 

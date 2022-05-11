@@ -4,5 +4,6 @@ extern "C" {
     pub fn os_HomeUp();
     pub fn os_DrawStatusBar();
     pub fn os_PutStrFull(str: *const [u8]);
-    pub fn os_GetCSC() -> i8;
+    pub fn os_GetCSC() -> u8;
+    pub fn randInt(min: usize, max: usize) -> usize;
 }
