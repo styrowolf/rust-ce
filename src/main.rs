@@ -1,6 +1,9 @@
-#![feature(asm)]
 #![no_std]
 #![no_main]
+
+mod celib;
+
+use celib::*;
 
 #[no_mangle]
 unsafe fn main() {
@@ -14,13 +17,4 @@ unsafe fn main() {
 #[panic_handler]
 fn panic(_panic: &core::panic::PanicInfo<'_>) -> ! {
     loop {}
-}
-
-#[allow(improper_ctypes)]
-extern "C" {
-    fn os_ClrLCD();
-    fn os_HomeUp();
-    fn os_DrawStatusBar();
-    fn os_PutStrFull(str: *const [u8]);
-    fn os_GetCSC() -> i8;
 }

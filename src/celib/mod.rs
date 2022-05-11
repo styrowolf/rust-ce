@@ -1,8 +1,8 @@
 #[allow(improper_ctypes)]
 extern "C" {
-    fn os_ClrLCD();
-    fn os_HomeUp();
-    fn os_DrawStatusBar();
-    fn os_PutStrFull(str: *const [u8]);
-    fn os_GetCSC() -> i8;
+    pub fn os_ClrLCD();
+    pub fn os_HomeUp();
+    pub fn os_DrawStatusBar();
+    pub fn os_PutStrFull(str: *const [u8]);
+    pub fn os_GetCSC() -> i8;
 }
