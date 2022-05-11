@@ -1,6 +1,6 @@
 [env]
 # Path to CE Toolchain files
-CEDEV = "/opt/CEdev"
+CEDEV = "/home/oguzkurt/development/ti84/git/CEdev"
 # Name to display in calculator
 EXECUTABLE_NAME = "DEMO"
 
@@ -90,7 +90,7 @@ args = [
     '-i', 'range .bss $D031F6 : $D13FD6', 
     '-i', 'provide __stack = $D1A87E', 
     '-i', 'locate .header at $D1A87F', 
-    '-i', 'require __cleanup',  
+    # '-i', 'require __cleanup',  
     '-i', 'source "${CEDEV}/lib/shared/crt0.src", "./incremental/${CARGO_MAKE_PROJECT_NAME}.s"', 
     'incremental/${CARGO_MAKE_PROJECT_NAME}.bin'
 ]
