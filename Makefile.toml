@@ -104,3 +104,31 @@ args = [
     '--input', 'incremental/${CARGO_MAKE_PROJECT_NAME}.bin',
     '--output', 'bin/${EXECUTABLE_NAME}.8xp'
 ]
+
+# xargo rustc --target=msp430-none-elf  -- --emit=llvm-ir -o ./incremental/msp.ll
+[tasks.compile_rust_msp]
+command = "xargo"
+args = [
+    "rustc",
+    "--target=msp430-none-elf",
+    "--",
+    "--emit=llvm-ir",
+    "-o", "./incremental/${CARGO_MAKE_PROJECT_NAME}.ll"
+]
+
+[tasks.hack_target_msp]
+command = "sed"
+args = [
+    "-i",
+    "s/msp430-none-elf/ez80/",
+    "./incremental/${CARGO_MAKE_PROJECT_NAME}.ll"
+]
+
+[tasks.ce_msp_nocompile]
+dependencies = [
+    "hack_target_msp",
+    "transpile_llvm_ir",
+    "compile_asm",
+    "make_8xp",
+    "clean_incremental"
+]

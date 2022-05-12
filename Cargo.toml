@@ -13,6 +13,3 @@ panic = "abort"
 
 [profile.release]
 panic = "abort"
-
-[build-dependencies]
-bindgen = "0.59.2"
